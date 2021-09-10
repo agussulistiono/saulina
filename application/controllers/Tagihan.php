@@ -59,19 +59,24 @@ class Tagihan extends CI_Controller {
                 $config['create_thumb']= FALSE;
                 $config['maintain_ratio']= FALSE;
                 $config['quality']= '50%';
-                $config['width']= 600;
-                $config['height']= 400;
+                $config['width']= 1024;
+                $config['height']= 2048;
                 $config['new_image']= './user/bukti/'.$gbr['file_name'];
                 $this->load->library('image_lib', $config);
                 $this->image_lib->resize();
                 $gambar=$gbr['file_name'];
+                $by = $this->input->post('biaya');
+                $nominal= $this->input->post('nominal');
+                $sisa = $by-$nominal;
                 $data = array(
                             'id_sewa'   => $this->input->post('id_sewa'),
                             'biaya'     => $this->input->post('biaya'),
                             'foto'      => $gambar,
                             'tgl_bayar' => $this->input->post('tgl_bayar'),
                             'status'    => $this->input->post('status'),
-                            'status_notif'    => '1'
+                            'status_notif'    => '1',
+                            'dp'        =>$nominal,
+                            'sisa'      =>$sisa
                         );
                 $this->TagihanModel->insert('pembayaran',$data);
                 redirect(base_url('tagihan/index'));

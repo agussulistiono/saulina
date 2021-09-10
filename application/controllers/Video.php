@@ -94,7 +94,6 @@ class Video extends CI_Controller
             $this->create();
         } else {
             $data = array(
-                'id_video' => $this->input->post('id_video',TRUE),
                 'ket_video' => $this->input->post('ket_video',TRUE),
                 'link_video' => $this->input->post('link_video',TRUE),
                 'tglinput_video' => $this->input->post('tglinput_video',TRUE),

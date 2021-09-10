@@ -35,7 +35,7 @@
                   <input type="hidden" name="harga" value="<?php echo $r['harga']; ?>" />
                   <input type="hidden" name="foto" value="<?php echo $r['foto']; ?>" />
                   <input type="hidden" name="qty" value="1" />
-                  <button type="submit" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-shopping-cart"></i> Beli</button>
+                  <button type="submit" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-shopping-cart"></i> Pesan</button>
                 </div>
                 </form>
               </div>

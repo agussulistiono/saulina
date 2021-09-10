@@ -11,7 +11,8 @@
                 <p>1. Pilih Jenis tarian kemudian tekan tombol "sewa"<br>
                   2. Pilih Kostum Tarian<br>
                  3. Isi formulir pemesanan<br>
-                  4. Lakukan Pembayarana dan Upload Bukti Transaksi<br>
+                  4. Lakukan Pembayarana Ke No. Rekening BCA (89882333323 A.n Ruthan)</br> 
+                  5. Upload Bukti Transaksi<br>
                   5. Cetak Bukti Transaksi Pembayaran</p>   
                 </div>
               </div>
@@ -41,6 +42,7 @@
                     ?>
                     <?php
                     //dbpembayaran berdasarkan id_sewa
+                     $pemb= $pembayaran->row();
                      $byar= $pembayaran->num_rows();
                     ?>
                     <?php
@@ -100,25 +102,98 @@
 		                  		<td>:</td>
 		                  		<td><p style="color: red">Belum Bayar</p></td>
 		                  	</tr>
-
+		                  	<form action="<?php echo base_url('tagihan/upload_image');?>" method="post" enctype='multipart/form-data'>
 		                  	<tr>
-		                  		<th>Upload Bukti Pembayaran</th>
+		                  		<th>Masukan Nominal</th>
+		                  		<td>:</td>
+		                  		<td> Rp. <input type="number" name="nominal" id="nominal" placeholder="Masukan Nominal" required></td>
+		                  	</tr>
+		                  	<tr>
+		                  		<th>Upload Bukti Pembayaran <br><span style="color: red">( Max 2 Mb )</span></th>
 		                  		<td>:</td>
 		                  		<td >
-		                  			<form action="<?php echo base_url('tagihan/upload_image');?>" method="post" enctype='multipart/form-data'>
+		                  			
 		                  				<input type="hidden" name="id_sewa" id="id_sewa" value="<?= $sj->id_sj?>">
 		                  				<input type="hidden" name="biaya" id="biaya" value="<?= $sj->biaya?>">
 		                  				<input type="hidden" name="tgl_bayar" id="tgl_bayar" value="<?= date('Y-m-d')?>">
 		                  				<input type="hidden" name="status" id="status" value="1">
 		                  				<input type="file" name="filefoto" id="filefoto">
 		                  				<input type="submit" name="simpan" class="btn btn-success" value="Bayar Sekarang">
-		                  			</form></td>
+		                  			</td>
 		                  	</tr>
-
+		                  	</form>
 		                
 		                  	</tbody>
 		                  </table>
-                    <?php }else{?>
+                    <?php }else{
+                    	if($pemb->sisa > 0)
+                    	{?>
+                    		
+                    		<div>
+                    		<a href="<?php echo base_url('Tagihan')?>" class="btn btn-danger btn-md">Riwayat Pemesanan</a>
+                    		
+                    	</div>
+                    	 <table class="table">
+		                  	<tr style="background-color: green; color: white;">
+		                  	<th colspan="6">Rincian Sewa Tarian</th>
+		                  	</tr>
+			                  	<tr>
+			                  		<th>Jenis Tarian</th>
+			                  		<td>:</td>
+			                  		<td><?php echo $sj->nama?></td>
+			                  	</tr>
+			                  	<tr>
+			                  		<th>Jumlah Penari</th>
+			                  		<td>:</td>
+			                  		<td><?php echo $sj->jumlah_penari?></td>
+			                  	</tr>
+			                  	<tr>
+			                  		<th>Tanggal Pertunjukan</th>
+			                  		<td>:</td>
+			                  		<td><?php echo $sj->tgl_acara?></td>
+			                  	</tr>
+			                  	<tr>
+			                  		<th>Waktu Pertunjukan</th>
+			                  		<td>:</td>
+			                  		<td><?php echo $sj->waktu?></td>
+			                  	</tr>
+			                  	<tr>
+			                  		<th>Total Biaya</th>
+			                  		<td>:</td>
+			                  		<td><p style="color: green; text-decoration: italic ">Rp.<?php echo $sj->biaya?>,-</p></td>
+			                  	</tr>
+			                  	<?php
+		                  		$query = $this->db->query("SELECT * FROM sewa_jasa_detail join produk on sewa_jasa_detail.id_produk = produk.id_produk where sewa_jasa_detail.id_sj='$id'");
+			                  	?>
+			                  	<tr>
+			                  		<th>Kostum</th>
+			                  		<td>:</td>
+			                  		<td>
+			                  			<?php $no=1; foreach( $query->result() as $r){?>
+			                  			<p style="color: green"><?php echo $no++;?>. <?php echo $r->judul;?></p>
+			                  			<hr>
+			                  			<?php } ?>
+			                  		</td>
+			                  	</tr>
+			                  	<tr>
+			                  		<th>Status Pembayaran</th>
+			                  		<td>:</td>
+			                  		<td>Down Payment(Dp) Sebesar <p style="color: green; text-decoration: italic "> Rp <?php echo $pemb->dp;?> </p></td>
+			                  	</tr>
+			                  	<tr>
+			                  		<th>Kekurangan pembayaran</th>
+			                  		<td>:</td>
+			                  		<td><p style="color: red; text-decoration: italic "> Rp <?php echo $pemb->sisa;?> </p></td>
+			                  	</tr>
+			                  	<tr>
+			                  		<th>Bukti Pembayaran</th>
+			                  		<td>:</td>
+			                  		<td><img style=" width: 300px; height: 350px;"src="<?php echo base_url()?>user/bukti/<?php echo $sp->foto?>" ></td>
+			                  	</tr>
+		                  </table>
+
+                    	<?php }else{
+                    	?>
                     	<div>
                     		<a href="<?php echo base_url('Tagihan')?>" class="btn btn-danger btn-md">Riwayat Pemesanan</a>
                     		<a href="<?php echo base_url('Tagihan/cetak_invoice/'.$id)?>" class="btn btn-success btn-md"><span class="fag fa-print"></span> Cetak</a>
@@ -177,6 +252,7 @@
 			                  	</tr>
 		                  </table>
                     <?php }
+                }
                     ?>
                   </p></strong>
          		  

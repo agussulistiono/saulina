@@ -108,8 +108,8 @@ class Foto extends CI_Controller
                     $config['create_thumb']= FALSE;
                     $config['maintain_ratio']= FALSE;
                     $config['quality']= '50%';
-                    $config['width']= 600;
-                    $config['height']= 400;
+                    $config['width']= 2048;
+                    $config['height']= 1024;
                     $config['new_image']= './user/galeri/'.$gbr['file_name'];
                     $this->load->library('image_lib', $config);
                     $this->image_lib->resize();
@@ -184,8 +184,8 @@ class Foto extends CI_Controller
                     $config['create_thumb']= FALSE;
                     $config['maintain_ratio']= FALSE;
                     $config['quality']= '50%';
-                    $config['width']= 600;
-                    $config['height']= 400;
+                    $config['width']= 2048;
+                    $config['height']= 1024;
                     $config['new_image']= './user/galeri/'.$gbr['file_name'];
                     $this->load->library('image_lib', $config);
                     $this->image_lib->resize();

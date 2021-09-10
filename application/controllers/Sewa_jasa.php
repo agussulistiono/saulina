@@ -93,8 +93,14 @@ class Sewa_jasa extends CI_Controller
     }
     public function konfirmasi() 
     {
+        $biaya = $this->input->post('biaya');
+        $nominal = $this->input->post('nominal');
+        $b = $biaya - $nominal;
+
         $data = array(
-            'status' => $this->input->post('status',TRUE)
+            'status' => $this->input->post('status',TRUE),
+            'dp'     => $this->input->post('nominal', TRUE),
+            'sisa'   => $b
         );
         $where= array('id_pem' => $this->input->post('id_pem', TRUE) );
         $this->pembayaran_model->update('pembayaran', $data,$where);

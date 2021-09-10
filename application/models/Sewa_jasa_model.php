@@ -43,7 +43,7 @@ class Sewa_jasa_model extends CI_Model
     }
 
     // get data with limit and search
-    function get_limit_data($limit, $start = 0, $q = NULL) {
+    function get_limit_data1($limit, $start = 0, $q = NULL) {
         $this->db->order_by($this->id, $this->order);
         $this->db->like('id_sj', $q);
 	$this->db->or_like('id_jasa', $q);
@@ -54,6 +54,27 @@ class Sewa_jasa_model extends CI_Model
 	$this->db->or_like('tgl_acara', $q);
 	$this->db->limit($limit, $start);
         return $this->db->get($this->table)->result();
+    }
+     function get_limit_data($limit, $start = 0, $q = NULL) {
+        $this->db->order_by($this->id, $this->order);
+        $this->db->like('id_sj', $q);
+        $this->db->or_like('sewa_jasa.id_jasa', $q);
+        $this->db->or_like('sewa_jasa.id_user', $q);
+        $this->db->or_like('sewa_jasa.biaya', $q);
+        $this->db->or_like('sewa_jasa.tgl_sewa', $q);
+        $this->db->or_like('sewa_jasa.alamat', $q);
+        $this->db->or_like('sewa_jasa.tgl_acara', $q);
+        $this->db->or_like('user.nama_user', $q);
+        $this->db->or_like('jasa.nama', $q);
+        $this->db->or_like('sewa_jasa.id_sj', $q);
+        $this->db->limit($limit, $start);
+        $this->db->select('*');
+        $this->db->from('sewa_jasa');
+        $this->db->join('pembayaran', 'sewa_jasa.id_sj = pembayaran.id_sewa');
+        $this->db->join('jasa', 'sewa_jasa.id_jasa = jasa.id_jasa');
+        $this->db->join('user', 'sewa_jasa.id_user = user.id_user');
+        $query = $this->db->get();
+        return  $query->result();
     }
 
     // insert data

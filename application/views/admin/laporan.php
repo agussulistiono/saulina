@@ -69,7 +69,7 @@
             if($a==0){
              echo "<tr><td colspan='10'><center>Maaf Data Yang anda cari tidak ada</center></td></tr>";
             }else{
-           $joinsewa = $this->db->query("SELECT *, SUM(pembayaran.biaya) AS jml_byr from pembayaran join sewa_jasa on pembayaran.id_sewa = sewa_jasa.id_sj join jasa on sewa_jasa.id_jasa=jasa.id_jasa where pembayaran.status='2'");
+           $joinsewa = $this->db->query("SELECT *, SUM(pembayaran.dp) AS jml_byr from pembayaran join sewa_jasa on pembayaran.id_sewa = sewa_jasa.id_sj join jasa on sewa_jasa.id_jasa=jasa.id_jasa where pembayaran.status='2'");
             $r=$joinsewa->row();
             $js = $this->db->query("SELECT *  from pembayaran join sewa_jasa on pembayaran.id_sewa = sewa_jasa.id_sj join jasa on sewa_jasa.id_jasa=jasa.id_jasa where pembayaran.status='2'");
            

@@ -46,6 +46,7 @@
   </div>
   	<!-- ======= Header ======= -->
 	<?php
+    
 		 $this->load->view($nav);
 	?>
 	 <?php

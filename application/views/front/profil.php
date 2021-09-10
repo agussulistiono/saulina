@@ -27,4 +27,37 @@
 
       </div>
     </section><!-- End About Us Section -->
+    <!-- ======= Doctors Section ======= -->
+    <section id="doctors" class="doctors section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Team</h2>
+        </div>
+
+        <div class="row">
+            <?php
+            $team_data = $this->db->query("SELECT * from team");
+            foreach ($team_data->result() as $team)
+            { ?>
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+              <div class="member" data-aos="fade-up" data-aos-delay="100">
+                <div class="member-img">
+                  <img style="width: 300px;height: 325px" src="<?php echo base_url()?>user/galeri/<?php echo $team->foto ?>" class="img-fluid" alt="">
+                </div>
+                <div class="member-info">
+                  <h4><?php echo $team->nama ?></h4>
+                  <span><?php echo $team->alamat ?></span>
+                  <span><?php echo $team->umur ?></span>
+                  <span><?php echo $team->status ?></span>
+                </div>
+              </div>
+            </div>
+          <?php
+          }
+          ?>
+        </div>
+
+      </div>
+    </section><!-- End Doctors Section -->
     </main>

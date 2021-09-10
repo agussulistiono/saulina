@@ -113,14 +113,13 @@ class Produk extends CI_Controller
                     $config['create_thumb']= FALSE;
                     $config['maintain_ratio']= FALSE;
                     $config['quality']= '50%';
-                    $config['width']= 600;
-                    $config['height']= 400;
+                    $config['width']= 2048;
+                    $config['height']= 1024;
                     $config['new_image']= './user/produk_dan_jasa/'.$gbr['file_name'];
                     $this->load->library('image_lib', $config);
                     $this->image_lib->resize();
                     $gambar=$gbr['file_name'];
                     $data = array(
-                        'id_produk' => $this->input->post('id_produk',TRUE),
                         'judul' => $this->input->post('judul',TRUE),
                         'deskripsi' => $this->input->post('deskripsi',TRUE),
                         'stok' => $this->input->post('stok',TRUE),
@@ -199,8 +198,8 @@ class Produk extends CI_Controller
                     $config['create_thumb']= FALSE;
                     $config['maintain_ratio']= FALSE;
                     $config['quality']= '50%';
-                    $config['width']= 600;
-                    $config['height']= 400;
+                    $config['width']= 2048;
+                    $config['height']= 1024;
                     $config['new_image']= './user/bukti/'.$gbr['file_name'];
                     $this->load->library('image_lib', $config);
                     $this->image_lib->resize();

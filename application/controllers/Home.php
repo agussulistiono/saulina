@@ -134,26 +134,33 @@ class Home extends CI_Controller {
 			  $data = array("container" => "front/login/home", "footer" => "front/footer", "nav" => "front/login/nav_user");
               $this->load->view("front/template", $data);
 		}else{
-        $this->_rules();
+	        $this->_rules();
+	        $Email = $this->input->post('email');
+	        $sql_cek=$this->db->query("SELECT * FROM user WHERE email='".$Email."'");
+            $r_cek = $sql_cek->num_rows();
+	        if ($this->form_validation->run() == FALSE) {
+	            $this->daftar();
+	        } else if($r_cek>0){
+	        	echo "alert('Email Sudah terdaftar!')";
+	        }else {
+	        	$token= hash('sha256', md5(date('Y-m-d'))) ;
+	            $data = array(
+	                'id_user' => $this->input->post('id_user',TRUE),
+	                'nama_user' => $this->input->post('nama',TRUE),
+	                'email' => $this->input->post('email',TRUE),
+	                'password' => $this->input->post('password',TRUE),
+	                'alamat_user' => $this->input->post('alamat',TRUE),
+	                'no_hp' => $this->input->post('no_hp',TRUE),
+	                'token'=> $token,
+	                'aktif'=>0
+	            );
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->daftar();
-        } else {
-            $data = array(
-                'id_user' => $this->input->post('id_user',TRUE),
-                'nama_user' => $this->input->post('nama',TRUE),
-                'email' => $this->input->post('email',TRUE),
-                'password' => $this->input->post('password',TRUE),
-                'alamat_user' => $this->input->post('alamat',TRUE),
-                'no_hp' => $this->input->post('no_hp',TRUE),
-            );
-
-            $this->User_model->insert($data);
-			  $this->session->set_flashdata('message', 'Create Record Success');
-			  redirect(base_url('login'));
-			//echo "<script>alert('Daftar Berhasil');location='login';</script>";
+	            $this->User_model->insert($data);
+				  $this->session->set_flashdata('message', 'Create Record Success');
+				  redirect(base_url('login'));
+				//echo "<script>alert('Daftar Berhasil');location='login';</script>";
+	        }
         }
-      }
 	}
 	public function _rules() 
     {

@@ -8,7 +8,7 @@ $ragenda= $agenda->num_rows();
 $jasa = $this->db->query('SELECT *  from jasa');
 $js= $jasa->num_rows();
 
-$joinsewa = $this->db->query("SELECT  SUM(biaya) AS jml_byr from pembayaran ");
+$joinsewa = $this->db->query("SELECT  SUM(dp) AS jml_byr from pembayaran ");
 $total=0;
 foreach ($joinsewa->result() as $k) {
   $total =+ $k->jml_byr;

@@ -63,6 +63,7 @@ $route['home'] = 'Admin/home';
 $route['home'] = 'Admin/home';
 $route['admin/kontak'] = 'Kontak/index';
 $route['admin/profil'] = 'Profil/index';
+$route['admin/team'] = 'Team/index';
 $route['admin/user'] = 'User/index';
 $route['admin/admin'] = 'Admin1/index';
 $route['admin/produk'] = 'Produk/index';

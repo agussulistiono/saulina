@@ -6,7 +6,7 @@ class LaporanModel extends CI_Model{
                    
 	}
 	public function total($bulan, $tahun){
-	return $this->db->query("SELECT *, SUM(pembayaran.biaya) AS jml_byr from pembayaran join sewa_jasa on pembayaran.id_sewa = sewa_jasa.id_sj join jasa on sewa_jasa.id_jasa=jasa.id_jasa where pembayaran.status='2'And month(pembayaran.tgl_bayar)='$bulan' And year(pembayaran.tgl_bayar)='$tahun'");
+	return $this->db->query("SELECT *, SUM(pembayaran.dp) AS jml_byr from pembayaran join sewa_jasa on pembayaran.id_sewa = sewa_jasa.id_sj join jasa on sewa_jasa.id_jasa=jasa.id_jasa where pembayaran.status='2'And month(pembayaran.tgl_bayar)='$bulan' And year(pembayaran.tgl_bayar)='$tahun'");
                    
 	}
 

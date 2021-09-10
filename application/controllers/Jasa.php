@@ -114,14 +114,14 @@ class Jasa extends CI_Controller
                         $config['create_thumb']= FALSE;
                         $config['maintain_ratio']= FALSE;
                         $config['quality']= '50%';
-                        $config['width']= 600;
-                        $config['height']= 400;
+                        $config['width']= 2048;
+                        $config['height']= 1024;
                         $config['new_image']= './user/produk_dan_jasa/'.$gbr['file_name'];
                         $this->load->library('image_lib', $config);
                         $this->image_lib->resize();
                         $gambar=$gbr['file_name'];
                         $data = array(
-                            'id_jasa' => $this->input->post('id_jasa',TRUE),
+                            
                             'nama' => $this->input->post('nama',TRUE),
                             'stok_penari' => $this->input->post('stok_penari',TRUE),
                             'harga' => $this->input->post('harga',TRUE),
@@ -172,8 +172,8 @@ class Jasa extends CI_Controller
                 $config['create_thumb']= FALSE;
                 $config['maintain_ratio']= FALSE;
                 $config['quality']= '50%';
-                $config['width']= 600;
-                $config['height']= 400;
+                $config['width']= 2048;
+                $config['height']= 1024;
                 $config['new_image']= './user/bukti/'.$gbr['file_name'];
                 $this->load->library('image_lib', $config);
                 $this->image_lib->resize();
@@ -246,8 +246,8 @@ class Jasa extends CI_Controller
                         $config['create_thumb']= FALSE;
                         $config['maintain_ratio']= FALSE;
                         $config['quality']= '50%';
-                        $config['width']= 600;
-                        $config['height']= 400;
+                        $config['width']= 2048;
+                        $config['height']= 1024;
                         $config['new_image']= './user/produk_dan_jasa/'.$gbr['file_name'];
                         $this->load->library('image_lib', $config);
                         $this->image_lib->resize();

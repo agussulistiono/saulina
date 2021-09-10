@@ -2,20 +2,21 @@
  <section id="contact" class="contact">
       <div class="container">
         <div class="row mt-6">
-        	<div class="col-lg-12">
+          <div class="col-lg-12">
             <div class="row"> 
               <div class="col-md-12">
                 <div class="info-box">
-	          		<h3>Cara Pemesanan</h3>
+                <h3>Cara Pemesanan</h3>
                 <hr style="border-color: green">
                 <p>1. Pilih Jenis tarian kemudian tekan tombol "sewa"<br>
                   2. Pilih Kostum Tarian<br>
                  3. Isi formulir pemesanan<br>
-                  4. Lakukan Pembayarana dan Upload Bukti Transaksi<br>
+                  4. Lakukan Pembayarana Ke No. Rekening BCA (89882333323 A.n Ruthan)</br> 
+                  5. Upload Bukti Transaksi<br>
                   5. Cetak Bukti Transaksi Pembayaran</p>   
                 </div>
               </div>
-          	</div>
+            </div>
           </div>
          
  			

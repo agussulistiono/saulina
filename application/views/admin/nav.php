@@ -17,7 +17,7 @@
   <a class="nav-link" href="home">
     <i class="fas fa-fw fa-tachometer-alt"></i>
     <span>Dashboard</span></a>
-</li>
+</li> 
 
 <!-- Divider -->
 <hr class="sidebar-divider">
@@ -37,6 +37,7 @@
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Custom About:</h6>
       <a class="collapse-item" href="<?php echo base_url('Profil')?>">Profil</a>
+      <a class="collapse-item" href="<?php echo base_url('Team')?>">Team</a>
       <a class="collapse-item" href="<?php echo base_url('Kontak')?>">Kontak</a>
     </div>
   </div>

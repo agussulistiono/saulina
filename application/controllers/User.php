@@ -98,7 +98,7 @@ class User extends CI_Controller
             $this->create();
         } else {
             $data = array(
-                'id_user' => $this->input->post('id_user',TRUE),
+                
                 'nama_user' => $this->input->post('nama_user',TRUE),
                 'email' => $this->input->post('email',TRUE),
                 'password' => $this->input->post('password',TRUE),

@@ -92,14 +92,14 @@ class Agenda extends CI_Controller
                     $config['create_thumb']= FALSE;
                     $config['maintain_ratio']= FALSE;
                     $config['quality']= '50%';
-                    $config['width']= 600;
-                    $config['height']= 400;
+                    $config['width']= 2048;
+                    $config['height']= 1024;
                     $config['new_image']= './user/agenda/'.$gbr['file_name'];
                     $this->load->library('image_lib', $config);
                     $this->image_lib->resize();
                     $gambar=$gbr['file_name'];
                     $data = array(
-                        'id_agenda' => $this->input->post('id_agenda',TRUE),
+                       
                         'judul_agenda' => $this->input->post('judul_agenda',TRUE),
                         'isi_agenda' => $this->input->post('isi_agenda',TRUE),
                         'tempat_agenda' => $this->input->post('tempat_agenda',TRUE),
@@ -171,8 +171,8 @@ class Agenda extends CI_Controller
                     $config['create_thumb']= FALSE;
                     $config['maintain_ratio']= FALSE;
                     $config['quality']= '50%';
-                    $config['width']= 600;
-                    $config['height']= 400;
+                    $config['width']= 2048;
+                    $config['height']= 1024;
                     $config['new_image']= './user/agenda/'.$gbr['file_name'];
                     $this->load->library('image_lib', $config);
                     $this->image_lib->resize();
