@@ -9,13 +9,13 @@
   <!-- Area Chart -->
   <div class="col-xl-12 col-lg-12">
   <?php  ?>
-  <form method="post" name="form1" action="<?php echo base_url('Laporan/cetakBulan')?>">
+  <form method="post" >
     <div class="card shadow mb-4">
       <!-- Card Header - Dropdown -->
       <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
       Bulan
-      <div class="col-xl-4">
-      <select name="bulan" id="bulan"  class="form-control">
+      <div class="col-xl-2">
+      <!-- <select name="bulan" id="bulan"  class="form-control">
       <option value="01">Januari</option>
       <option value="02">Februari</option>
       <option value="03">Maret</option>
@@ -30,7 +30,7 @@
       <option value="12">Desember</option>
       </select>
       </div>
-      <div class="col-xl-4">
+      <div class="col-xl-3">
       <select name="tahun" id="tahun" class="form-control">
       <?php
         $mulai= date('Y') - 50;
@@ -39,17 +39,19 @@
             echo '<option value="'.$i.'"'.$sel.'>'.$i.'</option>';
         }
       ?>
-      </select>
+      </select> -->
+      <input type="date" name="tanggal1">
       </div>
-      <button type="submit" name="submit" class="btn btn-success">Tampilkan</button>
-      <!-- <a href="#" name="cetak" class="btn btn-warning">Cetak</a>  --> 
+      <label>Sampai</label>
+      <div class="col-xl-3"><input type="date" name="tanggal2"></div>
+      
+      <input type="submit" name="submit" value="Cetak Per Tanggal" class="btn btn-success">
+      <a href="<?php echo base_url()?>laporan/cetaklaporan" name="cetak" class="btn btn-warning">Cetak Semua</a> 
       <a href="<?php echo base_url(); ?>laporan" class="btn btn-danger">Reset Filter</a>
       </form>
       </div>
       <div style="padding-top: 20px; padding-bottom: 20px;text-align: center">
-        
       </div>  
-      
         <table class="table table-bordered" style="margin-bottom: 10px">
             <tr>
                 <th>No</th>
@@ -69,10 +71,7 @@
             if($a==0){
              echo "<tr><td colspan='10'><center>Maaf Data Yang anda cari tidak ada</center></td></tr>";
             }else{
-           $joinsewa = $this->db->query("SELECT *, SUM(pembayaran.dp) AS jml_byr from pembayaran join sewa_jasa on pembayaran.id_sewa = sewa_jasa.id_sj join jasa on sewa_jasa.id_jasa=jasa.id_jasa where pembayaran.status='2'");
             $r=$joinsewa->row();
-            $js = $this->db->query("SELECT *  from pembayaran join sewa_jasa on pembayaran.id_sewa = sewa_jasa.id_sj join jasa on sewa_jasa.id_jasa=jasa.id_jasa where pembayaran.status='2'");
-           
             $no=1;
 
             foreach($js->result() as $lapo){

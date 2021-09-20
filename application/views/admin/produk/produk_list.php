@@ -42,8 +42,8 @@
             <tr>
                 <th>No</th>
                 <th>Judul</th>
-                <th>Stok</th>
-                <th>Harga</th>
+                <!-- <th>Stok</th> -->
+                
                 <th>Foto</th>
                 <th>Tgl input</th>
                 <th><?php echo anchor(site_url('produk/create'),'+', 'class="btn btn-success"'); ?></th>
@@ -54,8 +54,8 @@
                         <tr>
                     <td width="80px"><?php echo ++$start ?></td>
                     <td><?php echo $produk->judul ?></td>
-                    <td><?php echo $produk->stok ?></td>
-                    <td><?php echo 'Rp. '.number_format( $produk->harga) ?></td>
+                   <!--  <td><?php echo $produk->stok ?></td> -->
+                    
                     <td><img width='100' src="<?= base_url()?>user/produk_dan_jasa/<?php echo $produk->foto ?>"></td>
                     <td><?php echo $produk->tglinput ?></td>
                     <td style="text-align:center" width="200px">

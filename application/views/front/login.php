@@ -231,10 +231,13 @@ a {
                       <div class="row px-3"> <label class="mb-1">
                               <h6 class="mb-0 text-sm">Password</h6>
                           </label> <input type="password" name="password" placeholder="Enter password"> </div>
-                      <div class="row px-3 mb-4">
-                          <div class="row mb-4 px-3"> <small class="font-weight-bold">Don't have an account? <a href="<?php echo base_url()?>fdaftar" class="text-danger ">Register</a></small> </div>
+                      <div class="row px-3 ">
+                          <div class="row mb-4 px-3"> <small class="font-weight-bold">Belum Punya Akun? <a href="<?php echo base_url()?>fdaftar" class="text-danger ">Daftar</a></small> </div>
 
                       </div>
+                     
+                        <div class="row mb-4 px-3"> <small class="font-weight-bold">Lupa Password? <a href="<?php echo base_url()?>resetpassword" class="text-danger ">Reset Password</a></small> </div>
+                      
                       <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center">Login</button> </div>
                     </form>
                     

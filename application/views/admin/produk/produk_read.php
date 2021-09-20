@@ -12,8 +12,8 @@
               <div class="table-responsive">
                 <table class="table" id="dataTable" width="100%" cellspacing="0">
                 <tr><td>Judul</td><td><?php echo $judul; ?></td></tr>
-                <tr><td>Stok</td><td><?php echo $stok; ?></td></tr>
-                <tr><td>Harga</td><td><?php echo $harga; ?></td></tr>
+                <!-- <tr><td>Stok</td><td><?php echo $stok; ?></td></tr> -->
+                <!-- <tr><td>Harga</td><td><?php echo $harga; ?></td></tr> -->
                 <tr><td>Foto</td><td><img width='100' src="<?= base_url()?>user/produk_dan_jasa/<?php echo $foto ?>"></td></tr>
                 <tr><td>Tglinput</td><td><?php echo $tglinput; ?></td></tr>
                     <tr><td></td><td>

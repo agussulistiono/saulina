@@ -19,14 +19,14 @@
                     <label for="varchar"> Deskripsi <?php echo form_error('deskripsi') ?></label>
                     <textarea class="form-control" name="deskripsi" id="deskripsi" placeholder="Deskripsi"><?php echo $deskripsi; ?></textarea>
                 </div>
-                <div class="form-group">
+               <!--  <div class="form-group">
                     <label for="int">Stok <?php echo form_error('stok') ?></label>
                     <input type="number" class="form-control" name="stok" id="stok" placeholder="Stok" value="<?php echo $stok; ?>" />
                 </div>
                 <div class="form-group">
                     <label for="int">Harga <?php echo form_error('harga') ?></label>
                     <input type="text" class="form-control" name="harga" id="harga" placeholder="Harga" value="<?php echo $harga; ?>" />
-                </div>
+                </div> -->
                 <div class="form-group">
                     <label for="varchar">Foto<?php echo form_error('foto') ?></label>
                     <br>

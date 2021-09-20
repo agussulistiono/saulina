@@ -23,10 +23,13 @@ class User_login extends CI_Controller{
 	function aksi_login(){
 		$email= $this->input->post('email');
 		$password = $this->input->post('password');
+        
         $cek= $this->db->query("select * from user where email='$email' and password='$password'");
+        $rq=$cek->row_array();
         $a=$cek->num_rows();
-       
+        
         if($a==TRUE){
+
             $data_session = array(
                  'email' => $email,
                  'password' => $password,
@@ -35,8 +38,10 @@ class User_login extends CI_Controller{
                  );
             $this->session->set_userdata($data_session);
             $query= $this->db->query("select * from user where email='$email' and password='$password'");
-             $row = $query->row();
-            if($this->session->userdata('email')== $row->email){
+            $row = $query->row();
+            if($row->aktif == 0 ){
+                echo "<script>alert('Akun anda blum di verifikasi');history.go(-2);</script>";
+            }elseif($this->session->userdata('email')== $row->email) {
                  $data_session = array(
                  'id_user'=>'id_user',
                  'email' => $row->email,
@@ -49,7 +54,7 @@ class User_login extends CI_Controller{
                 $this->session->set_userdata($data_session);
                 redirect(base_url("user_login/home"));
             }else{
-                $this->session->set_flashdata('gagal','Anda Gagal Login, cek Username dan Password');
+                $this->session->set_flashdata('gagal','Anda Gagal Login, cek Username dan Password atau link belum di aktivasi');
                 redirect(base_url("login"));
             }
         }else{ 

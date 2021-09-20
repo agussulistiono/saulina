@@ -25,29 +25,49 @@ class Laporan extends CI_Controller {
         $this->load->Model('LaporanModel');
     }
 	public function index(){
+		if(isset($_POST['submit'])){
+			$tanggal1 = $this->input->post('tanggal1');
+	     	$tanggal2 = $this->input->post('tanggal2');
 
-		$data = array("container" => "admin/laporan",
-		 			  "footer" => "admin/footer",
-		               "nav" => "admin/nav");
-		 $this->load->view("admin/template", $data);
+	     	$data = array(
+					  "joinsewa"=>$this->LaporanModel->fjoinsewa($tanggal1, $tanggal2),
+					  "js" => $this->LaporanModel->flap($tanggal1, $tanggal2),
+					 );
+			$this->load->view("admin/cetak", $data);
+			
+		}else{
+			$data = array("joinsewa"=>$this->LaporanModel->joinsewa(),
+						  "js" =>$this->LaporanModel->lap(),
+						  "container" => "admin/laporan",
+			 			  "footer" => "admin/footer",
+			               "nav" => "admin/nav");
+			 $this->load->view("admin/template", $data);
+			}
 	}
 
-	public function cetakBulan(){
-		$bulan = $this->input->post('bulan');
-		$tahun = $this->input->post('tahun');
-
-		$data = array("hasil3"=>$this->LaporanModel-> getPembayaran($bulan, $tahun),
-					  "total"=>$this->LaporanModel->total($bulan, $tahun),
-					  "joinsewa"=>$this->LaporanModel->view($bulan, $tahun),
-					  "container" => "admin/cetakBulan",
-		 			  "footer" => "admin/footer",
-		               "nav" => "admin/nav");
-		$this->load->view("admin/template", $data);
+	public function cetaklaporan(){
+		$data = array("joinsewa"=>$this->LaporanModel->joinsewa(),
+						  "js" =>$this->LaporanModel->lap());
+						  
+		 $this->load->view("admin/cetak", $data);
 	}
 
-	public function view($bulan, $tahun){
-		echo "datang gaessafsdfasdf";
-	}
+	// public function cetakBulan(){
+	// 	$tanggal1 = $this->input->post('tanggal1');
+	// 	$tanggal2 = $this->input->post('tanggal2');
+
+	// 	$data = array("hasil3"=>$this->LaporanModel-> getPembayaran($tanggal1, $tanggal2),
+	// 				  "total"=>$this->LaporanModel->total($tanggal1, $tanggal2),
+	// 				  "joinsewa"=>$this->LaporanModel->view($tanggal1, $tanggal2),
+	// 				  "container" => "admin/cetakBulan",
+	// 	 			  "footer" => "admin/footer",
+	// 	               "nav" => "admin/nav");
+	// 	$this->load->view("admin/template", $data);
+	// }
+
+	// public function view($bulan, $tanggal2){
+	// 	echo "datang gaessafsdfasdf";
+	// }
 	
 	
 }
