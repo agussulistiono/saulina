@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2021 at 07:18 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 5.6.40
+-- Waktu pembuatan: 20 Sep 2021 pada 03.30
+-- Versi server: 10.4.13-MariaDB
+-- Versi PHP: 7.2.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
 CREATE TABLE `admin` (
@@ -36,7 +35,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `admin`
+-- Dumping data untuk tabel `admin`
 --
 
 INSERT INTO `admin` (`id_admin`, `username`, `password`, `nama`) VALUES
@@ -45,7 +44,7 @@ INSERT INTO `admin` (`id_admin`, `username`, `password`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `agenda`
+-- Struktur dari tabel `agenda`
 --
 
 CREATE TABLE `agenda` (
@@ -60,7 +59,7 @@ CREATE TABLE `agenda` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `agenda`
+-- Dumping data untuk tabel `agenda`
 --
 
 INSERT INTO `agenda` (`id_agenda`, `judul_agenda`, `isi_agenda`, `tempat_agenda`, `tgl_agenda`, `waktu_agenda`, `foto_agenda`, `tglinput_agenda`) VALUES
@@ -71,7 +70,7 @@ INSERT INTO `agenda` (`id_agenda`, `judul_agenda`, `isi_agenda`, `tempat_agenda`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foto`
+-- Struktur dari tabel `foto`
 --
 
 CREATE TABLE `foto` (
@@ -82,7 +81,7 @@ CREATE TABLE `foto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `foto`
+-- Dumping data untuk tabel `foto`
 --
 
 INSERT INTO `foto` (`id_galeri`, `ket_galeri`, `foto_galeri`, `tglinput_galeri`) VALUES
@@ -96,7 +95,7 @@ INSERT INTO `foto` (`id_galeri`, `ket_galeri`, `foto_galeri`, `tglinput_galeri`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jasa`
+-- Struktur dari tabel `jasa`
 --
 
 CREATE TABLE `jasa` (
@@ -110,7 +109,7 @@ CREATE TABLE `jasa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `jasa`
+-- Dumping data untuk tabel `jasa`
 --
 
 INSERT INTO `jasa` (`id_jasa`, `nama`, `stok_penari`, `harga`, `deskripsi`, `foto_jasa`, `tgl_input`) VALUES
@@ -122,7 +121,7 @@ INSERT INTO `jasa` (`id_jasa`, `nama`, `stok_penari`, `harga`, `deskripsi`, `fot
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kontak`
+-- Struktur dari tabel `kontak`
 --
 
 CREATE TABLE `kontak` (
@@ -133,7 +132,7 @@ CREATE TABLE `kontak` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `kontak`
+-- Dumping data untuk tabel `kontak`
 --
 
 INSERT INTO `kontak` (`id_kontak`, `alamat_kontak`, `email_kontak`, `telepon_kontak`) VALUES
@@ -142,7 +141,7 @@ INSERT INTO `kontak` (`id_kontak`, `alamat_kontak`, `email_kontak`, `telepon_kon
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pembayaran`
+-- Struktur dari tabel `pembayaran`
 --
 
 CREATE TABLE `pembayaran` (
@@ -158,7 +157,7 @@ CREATE TABLE `pembayaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `pembayaran`
+-- Dumping data untuk tabel `pembayaran`
 --
 
 INSERT INTO `pembayaran` (`id_pem`, `id_sewa`, `biaya`, `foto`, `tgl_bayar`, `status`, `status_notif`, `dp`, `sisa`) VALUES
@@ -169,7 +168,7 @@ INSERT INTO `pembayaran` (`id_pem`, `id_sewa`, `biaya`, `foto`, `tgl_bayar`, `st
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produk`
+-- Struktur dari tabel `produk`
 --
 
 CREATE TABLE `produk` (
@@ -183,7 +182,7 @@ CREATE TABLE `produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `produk`
+-- Dumping data untuk tabel `produk`
 --
 
 INSERT INTO `produk` (`id_produk`, `judul`, `deskripsi`, `stok`, `harga`, `foto`, `tglinput`) VALUES
@@ -201,7 +200,7 @@ INSERT INTO `produk` (`id_produk`, `judul`, `deskripsi`, `stok`, `harga`, `foto`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `profil`
+-- Struktur dari tabel `profil`
 --
 
 CREATE TABLE `profil` (
@@ -212,7 +211,7 @@ CREATE TABLE `profil` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `profil`
+-- Dumping data untuk tabel `profil`
 --
 
 INSERT INTO `profil` (`id_profil`, `judul`, `isi_profil`, `foto_profil`) VALUES
@@ -221,7 +220,7 @@ INSERT INTO `profil` (`id_profil`, `judul`, `isi_profil`, `foto_profil`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sewa_jasa`
+-- Struktur dari tabel `sewa_jasa`
 --
 
 CREATE TABLE `sewa_jasa` (
@@ -238,7 +237,7 @@ CREATE TABLE `sewa_jasa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `sewa_jasa`
+-- Dumping data untuk tabel `sewa_jasa`
 --
 
 INSERT INTO `sewa_jasa` (`id_sj`, `id_jasa`, `id_user`, `jumlah_penari`, `biaya`, `tgl_sewa`, `alamat`, `tgl_acara`, `waktu`, `status_pesanan`) VALUES
@@ -249,7 +248,7 @@ INSERT INTO `sewa_jasa` (`id_sj`, `id_jasa`, `id_user`, `jumlah_penari`, `biaya`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sewa_jasa_detail`
+-- Struktur dari tabel `sewa_jasa_detail`
 --
 
 CREATE TABLE `sewa_jasa_detail` (
@@ -258,7 +257,7 @@ CREATE TABLE `sewa_jasa_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `sewa_jasa_detail`
+-- Dumping data untuk tabel `sewa_jasa_detail`
 --
 
 INSERT INTO `sewa_jasa_detail` (`id_sj`, `id_produk`) VALUES
@@ -271,7 +270,7 @@ INSERT INTO `sewa_jasa_detail` (`id_sj`, `id_produk`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `slider`
+-- Struktur dari tabel `slider`
 --
 
 CREATE TABLE `slider` (
@@ -284,7 +283,7 @@ CREATE TABLE `slider` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `slider`
+-- Dumping data untuk tabel `slider`
 --
 
 INSERT INTO `slider` (`id_slider`, `judul_slider`, `deskripsi`, `foto_slider`, `tglinput_slider`, `status`) VALUES
@@ -296,7 +295,7 @@ INSERT INTO `slider` (`id_slider`, `judul_slider`, `deskripsi`, `foto_slider`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `team`
+-- Struktur dari tabel `team`
 --
 
 CREATE TABLE `team` (
@@ -309,7 +308,7 @@ CREATE TABLE `team` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `team`
+-- Dumping data untuk tabel `team`
 --
 
 INSERT INTO `team` (`id_team`, `nama`, `alamat`, `umur`, `status`, `foto`) VALUES
@@ -320,7 +319,7 @@ INSERT INTO `team` (`id_team`, `nama`, `alamat`, `umur`, `status`, `foto`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -329,23 +328,25 @@ CREATE TABLE `user` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `alamat_user` varchar(255) NOT NULL,
-  `no_hp` varchar(14) NOT NULL
+  `no_hp` varchar(14) NOT NULL,
+  `token` varchar(100) NOT NULL,
+  `aktif` int(2) NOT NULL,
+  `code` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id_user`, `nama_user`, `email`, `password`, `alamat_user`, `no_hp`) VALUES
-(1, 'Desi Amaliani', 'desi@gmail.com', '1234', 'indramayu', '087718727715'),
-(2, 'agus', 'agus@gmail.com', '@agus01', 'lampung', '0834343434'),
-(3, 'fana', 'ag@gmail.com', '1234', 'lampung', '082372317805'),
-(4, 'andi', 'andi@gmail.com', '12345678', 'bandar lampung', '082372317805');
+INSERT INTO `user` (`id_user`, `nama_user`, `email`, `password`, `alamat_user`, `no_hp`, `token`, `aktif`, `code`) VALUES
+(3, 'andi', 'edplampung01@gmail.com', '123456', 'way halim', '345345345345', '59124ca574f7810cb80836f719878f3e628b96a2d68665c8abb93fe8739615c5', 1, 'ZKIYlSkoqPXURtM'),
+(6, 'agus', 'agussulistiono0@gmail.com', 'agus', 'semaka', '534545345345', 'fc098bf380077e15c005a3e4d267baa36c3855a87f827f5d2d38698dfa196fd6', 1, 'z4F9H1JmTahv8Wy'),
+(7, 'agus', 'agussulistionoa0@gmail.com', '0000000000', 'semaka', '34534534534534', 'fc098bf380077e15c005a3e4d267baa36c3855a87f827f5d2d38698dfa196fd6', 1, 'Hrl6eWbEMo9fsiK');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `video`
+-- Struktur dari tabel `video`
 --
 
 CREATE TABLE `video` (
@@ -356,7 +357,7 @@ CREATE TABLE `video` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `video`
+-- Dumping data untuk tabel `video`
 --
 
 INSERT INTO `video` (`id_video`, `ket_video`, `link_video`, `tglinput_video`) VALUES
@@ -371,155 +372,155 @@ INSERT INTO `video` (`id_video`, `ket_video`, `link_video`, `tglinput_video`) VA
 --
 
 --
--- Indexes for table `admin`
+-- Indeks untuk tabel `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`) USING BTREE;
 
 --
--- Indexes for table `agenda`
+-- Indeks untuk tabel `agenda`
 --
 ALTER TABLE `agenda`
   ADD PRIMARY KEY (`id_agenda`) USING BTREE;
 
 --
--- Indexes for table `foto`
+-- Indeks untuk tabel `foto`
 --
 ALTER TABLE `foto`
   ADD PRIMARY KEY (`id_galeri`) USING BTREE;
 
 --
--- Indexes for table `jasa`
+-- Indeks untuk tabel `jasa`
 --
 ALTER TABLE `jasa`
   ADD PRIMARY KEY (`id_jasa`) USING BTREE;
 
 --
--- Indexes for table `kontak`
+-- Indeks untuk tabel `kontak`
 --
 ALTER TABLE `kontak`
   ADD PRIMARY KEY (`id_kontak`) USING BTREE;
 
 --
--- Indexes for table `pembayaran`
+-- Indeks untuk tabel `pembayaran`
 --
 ALTER TABLE `pembayaran`
   ADD PRIMARY KEY (`id_pem`) USING BTREE;
 
 --
--- Indexes for table `produk`
+-- Indeks untuk tabel `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`) USING BTREE;
 
 --
--- Indexes for table `profil`
+-- Indeks untuk tabel `profil`
 --
 ALTER TABLE `profil`
   ADD PRIMARY KEY (`id_profil`) USING BTREE;
 
 --
--- Indexes for table `sewa_jasa`
+-- Indeks untuk tabel `sewa_jasa`
 --
 ALTER TABLE `sewa_jasa`
   ADD PRIMARY KEY (`id_sj`);
 
 --
--- Indexes for table `slider`
+-- Indeks untuk tabel `slider`
 --
 ALTER TABLE `slider`
   ADD PRIMARY KEY (`id_slider`) USING BTREE;
 
 --
--- Indexes for table `team`
+-- Indeks untuk tabel `team`
 --
 ALTER TABLE `team`
   ADD PRIMARY KEY (`id_team`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`) USING BTREE;
 
 --
--- Indexes for table `video`
+-- Indeks untuk tabel `video`
 --
 ALTER TABLE `video`
   ADD PRIMARY KEY (`id_video`) USING BTREE;
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT untuk tabel `admin`
 --
 ALTER TABLE `admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `agenda`
+-- AUTO_INCREMENT untuk tabel `agenda`
 --
 ALTER TABLE `agenda`
   MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `foto`
+-- AUTO_INCREMENT untuk tabel `foto`
 --
 ALTER TABLE `foto`
   MODIFY `id_galeri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `jasa`
+-- AUTO_INCREMENT untuk tabel `jasa`
 --
 ALTER TABLE `jasa`
   MODIFY `id_jasa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `kontak`
+-- AUTO_INCREMENT untuk tabel `kontak`
 --
 ALTER TABLE `kontak`
   MODIFY `id_kontak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `pembayaran`
+-- AUTO_INCREMENT untuk tabel `pembayaran`
 --
 ALTER TABLE `pembayaran`
   MODIFY `id_pem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `produk`
+-- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
   MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `profil`
+-- AUTO_INCREMENT untuk tabel `profil`
 --
 ALTER TABLE `profil`
   MODIFY `id_profil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `slider`
+-- AUTO_INCREMENT untuk tabel `slider`
 --
 ALTER TABLE `slider`
   MODIFY `id_slider` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `team`
+-- AUTO_INCREMENT untuk tabel `team`
 --
 ALTER TABLE `team`
   MODIFY `id_team` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `video`
+-- AUTO_INCREMENT untuk tabel `video`
 --
 ALTER TABLE `video`
   MODIFY `id_video` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
